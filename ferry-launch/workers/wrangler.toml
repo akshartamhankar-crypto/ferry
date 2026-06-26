@@ -1,0 +1,15 @@
+name = "ferry-api"
+main = "ferry-api.js"
+compatibility_date = "2024-11-01"
+
+# Price IDs are not secrets. Create these in Stripe (3 one-time + 1 recurring),
+# then paste the price_… IDs here.
+[vars]
+SITE_URL = "https://ferry.techcesories.com"
+PRICE_1MO = "price_REPLACE_1month_299"
+PRICE_3MO = "price_REPLACE_3month_699"
+PRICE_6MO = "price_REPLACE_6month_1199"
+PRICE_ANNUAL = "price_REPLACE_annual_1499"
+
+# Stripe secret key is set out-of-band, never in this file:
+#   wrangler secret put STRIPE_SECRET
