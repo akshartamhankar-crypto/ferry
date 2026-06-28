@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Privacy — Ferry</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ferry Privacy</title><style>
 :root{--ink:#0c1a1d;--deep:#0f3a40;--hull:#14464d;--line:#1d5860;--foam:#9ec0bd;--beacon:#e8a13a;--mono:ui-monospace,"SF Mono",Menlo,monospace;--ui:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:transparent;color:#eaf2f0;font-family:var(--ui);line-height:1.65}
 .wrap{max-width:740px;margin:0 auto;padding:40px 28px 70px;background:rgba(7,28,34,.74);border-radius:14px;margin-top:24px}
@@ -11,16 +11,16 @@ th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}th{backgroun
 blockquote{border-left:3px solid var(--beacon);margin:12px 0;padding:2px 14px;color:var(--foam)}
 hr{border:0;border-top:1px solid var(--line);margin:26px 0}
 em{color:var(--foam)}.back{display:inline-block;margin-bottom:14px;color:var(--foam);font-size:13px}
-</style><link rel="stylesheet" href="/sea.css"></head><body><canvas class="seascape" id="seaCanvas" aria-hidden="true"></canvas><div id="cursorLight" aria-hidden="true"></div><div id="stormFlash" aria-hidden="true"></div><div class="wrap"><div class="brand">⛴ Ferry</div><a class="back" href="/">← Back to Ferry</a><h1>Ferry — Privacy Policy</h1>
+</style><link rel="stylesheet" href="/sea.css"></head><body><canvas class="seascape" id="seaCanvas" aria-hidden="true"></canvas><div id="cursorLight" aria-hidden="true"></div><div id="stormFlash" aria-hidden="true"></div><div class="wrap"><div class="brand">⛴ Ferry</div><a class="back" href="/">← Back to Ferry</a><h1>Ferry Privacy Policy</h1>
 <p><strong>Last updated: June 24, 2026</strong> · Set this to your actual publish date before going live.
 <strong>Publisher:</strong> Techcesories LLC (Georgia, USA) · <strong>Product:</strong> Ferry browser extension
 <strong>Contact:</strong> <a href="mailto:privacy@techcesories.com">privacy@techcesories.com</a></p>
-<p>Ferry is a browser extension that exports your ChatGPT and Claude conversations to Markdown files you save yourself. This policy explains exactly what Ferry does and does not do with data. We wrote it to be true, not reassuring — under Georgia&#39;s Fair Business Practices Act and the FTC Act, a privacy claim that isn&#39;t accurate is itself a violation.</p>
+<p>Ferry is a browser extension that exports your ChatGPT and Claude conversations to Markdown files you save yourself. This policy explains exactly what Ferry does and does not do with data. We wrote it to be true, not reassuring. Under Georgia&#39;s Fair Business Practices Act and the FTC Act, a privacy claim that isn&#39;t accurate is itself a violation.</p>
 <h2>The short version</h2>
 <ul>
 <li>Ferry runs on your device. Your conversations are processed locally and <strong>never touch our servers</strong>.</li>
 <li>When you click <strong>Export</strong>, Ferry reads the conversation open in the current tab, converts it to Markdown, and hands the result to you (download, clipboard, or your Obsidian vault). <strong>That content is never sent to us.</strong></li>
-<li><strong>Pro licensing:</strong> to check whether you have an active subscription, Ferry sends an <strong>anonymous install ID</strong> (a random identifier — no name, no email) to our licensing service, which verifies it against Stripe. No conversation content is ever involved. Payment details go only to Stripe.</li>
+<li><strong>Pro licensing:</strong> to check whether you have an active subscription, Ferry sends an <strong>anonymous install ID</strong> (a random identifier, no name, no email) to our licensing service, which verifies it against Stripe. No conversation content is ever involved. Payment details go only to Stripe.</li>
 <li><strong>Bulk migration (Pro):</strong> when you start a migration, Ferry uses your existing logged-in session to read your conversation list and conversations from ChatGPT&#39;s or Claude&#39;s own API, <strong>in your browser</strong>, converts them to Markdown locally, and packages them into a ZIP you download. This data is processed on your device and <strong>never sent to us</strong>. You choose which conversations to include.</li>
 <li><strong>Optional integrations:</strong> if <em>you</em> configure Notion or GitHub with your own access token, Ferry sends the conversation you choose <strong>directly from your browser to that service, using your credentials</strong>, at your request. We never receive or relay it.</li>
 <li>We do <strong>not</strong> collect analytics, track your browsing, build profiles, serve ads, or sell data. We never will.</li>
@@ -40,7 +40,7 @@ em{color:var(--foam)}.back{display:inline-block;margin-bottom:14px;color:var(--f
 <td><strong>Website content / personal communications</strong></td>
 <td>The text of the conversation you choose to export</td>
 <td>Processed in memory on your device, only when you click Export. Written only to the destination you pick. <strong>Not transmitted to us.</strong></td>
-<td>To produce the Markdown export — the extension&#39;s single purpose</td>
+<td>To produce the Markdown export, the extension&#39;s single purpose</td>
 </tr>
 <tr>
 <td><strong>User content stored locally</strong> (Pro: bulk queue / auto-sync)</td>
@@ -69,18 +69,18 @@ em{color:var(--foam)}.back{display:inline-block;margin-bottom:14px;color:var(--f
 </tbody></table>
 <p>That is the complete list. Ferry requests only the permissions these features need: reading conversations on chatgpt.com / chat.openai.com / claude.ai, local storage, and contacting our licensing Worker (with an anonymous ID) for Pro status.</p>
 <h2>Who we share with</h2>
-<p>Only <strong>Stripe</strong>, our payment processor, and only for Pro: Stripe handles checkout and holds payment data (we never see card details). Our own licensing service (a Cloudflare Worker) receives only the anonymous install ID to verify your status with Stripe — it stores nothing and never sees your conversations.</p>
-<p>If you enable an integration, the conversation you choose is sent <strong>by your browser, directly to the service you picked</strong> — <strong>Notion</strong> (api.notion.com) or <strong>GitHub</strong> (api.github.com) — authenticated with a token <em>you</em> create and store locally in Ferry. This is a transfer you initiate, to your own account; we are not in the path and never receive the content or your tokens. We do not sell or &quot;share&quot; personal data for cross-context behavioral advertising.</p>
+<p>Only <strong>Stripe</strong>, our payment processor, and only for Pro: Stripe handles checkout and holds payment data (we never see card details). Our own licensing service (a Cloudflare Worker) receives only the anonymous install ID to verify your status with Stripe. It stores nothing and never sees your conversations.</p>
+<p>If you enable an integration, the conversation you choose is sent <strong>by your browser, directly to the service you picked</strong>: <strong>Notion</strong> (api.notion.com) or <strong>GitHub</strong> (api.github.com), authenticated with a token <em>you</em> create and store locally in Ferry. This is a transfer you initiate, to your own account; we are not in the path and never receive the content or your tokens. We do not sell or &quot;share&quot; personal data for cross-context behavioral advertising.</p>
 <h2>Security</h2>
-<p>Conversation content is processed locally and not transmitted to us, which removes the largest risk entirely — there is no central store of your chats to breach. Any conversation content Ferry persists locally (Pro queue/auto-sync) is encrypted at rest with AES-GCM-256. Communication with our payment processors occurs over HTTPS. The extension loads no remote code and includes a strict Content Security Policy. No system is perfectly secure, and we don&#39;t claim otherwise; see SECURITY.md for our threat model and how to report a vulnerability.</p>
+<p>Conversation content is processed locally and not transmitted to us, which removes the largest risk entirely. There is no central store of your chats to breach. Any conversation content Ferry persists locally (Pro queue/auto-sync) is encrypted at rest with AES-GCM-256. Communication with our payment processors occurs over HTTPS. The extension loads no remote code and includes a strict Content Security Policy. No system is perfectly secure, and we don&#39;t claim otherwise; see SECURITY.md for our threat model and how to report a vulnerability.</p>
 <h2>Data retention and your choices</h2>
 <ul>
-<li>Exported files live wherever you saved them — under your control, not ours.</li>
+<li>Exported files live wherever you saved them, under your control, not ours.</li>
 <li>Locally stored Pro data stays until you clear it. You can delete all locally stored content at any time from the extension, or by removing the extension.</li>
 <li>For payment records, contact <a href="mailto:privacy@techcesories.com">privacy@techcesories.com</a> to access or delete data held by us as the seller (subject to records we must retain by law).</li>
 </ul>
 <h2>Your rights (US state privacy laws)</h2>
-<p>We are a small business below the applicability thresholds of comprehensive state privacy statutes, including the <strong>Georgia Consumer Privacy Protection Act</strong> (effective July 1, 2026) and the California CCPA/CPRA. Even so, we honor the core rights those laws describe — to access, correct, delete, and opt out of any sale of personal data. Because we don&#39;t sell data and hold almost none, most requests resolve immediately. Email <a href="mailto:privacy@techcesories.com">privacy@techcesories.com</a> and we&#39;ll respond within 45 days.</p>
+<p>We are a small business below the applicability thresholds of comprehensive state privacy statutes, including the <strong>Georgia Consumer Privacy Protection Act</strong> (effective July 1, 2026) and the California CCPA/CPRA. Even so, we honor the core rights those laws describe: to access, correct, delete, and opt out of any sale of personal data. Because we don&#39;t sell data and hold almost none, most requests resolve immediately. Email <a href="mailto:privacy@techcesories.com">privacy@techcesories.com</a> and we&#39;ll respond within 45 days.</p>
 <h2>Children</h2>
 <p>Ferry is not directed to children under 13 and we do not knowingly collect their personal information. If you believe a child has provided us data, contact us and we will delete it.</p>
 <h2>Limited Use disclosure (Chrome Web Store)</h2>

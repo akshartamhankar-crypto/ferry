@@ -8,3 +8,7 @@
   mix-blend-mode:screen;background:rgba(150,185,210,.85)}
 /* content floats above the sea */
 .wrap,.card,main,header,footer,section{position:relative;z-index:1}
+
+/* mobile / touch */
+html,body{overflow-x:hidden;max-width:100%}
+@media (pointer:coarse){#cursorLight,#stormFlash{display:none!important}}
