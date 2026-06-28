@@ -81,7 +81,7 @@
   function mkDrop(any) { var z = Math.random(); return { x: rand(-60, W), y: any ? rand(-H, surfaceY) : rand(-90, -10), z: z, sp: 9 + z * 12 }; }
   function initClouds() { clouds.length = 0; if (reduce) { for (var r = 0; r < 6; r++) clouds.push({ x: rand(0, W), y: rand(-10, surfaceY * 0.34), s: rand(1, 2), sp: rand(3, 8), layer: 0 }); return; } var bg = mobile ? 9 : 17, fg = mobile ? 4 : 9; for (var i = 0; i < bg; i++) clouds.push({ x: rand(-120, W + 120), y: rand(-14, surfaceY * 0.34), s: rand(0.8, 1.5), sp: rand(3, 8), layer: 0 }); for (i = 0; i < fg; i++) clouds.push({ x: rand(-120, W + 120), y: rand(surfaceY * 0.04, surfaceY * 0.44), s: rand(1.8, 3.3), sp: rand(6, 13), layer: 1 }); clouds.sort(function (a, b) { return a.layer - b.layer; }); }
   function initStars() { stars.length = 0; for (var i = 0; i < 16; i++) stars.push({ x: rand(0, W), y: rand(0, surfaceY * 0.42), r: rand(0.5, 1.3), p: rand(0, 6.28) }); }
-  function initFog() { fog.length = 0; if (reduce) return; var sN = mobile ? 3 : 5; for (var i = 0; i < sN; i++) fog.push({ y: surfaceY + 16 + i * 36 + rand(-12, 12), ph: rand(0, 6.28), a: rand(0.05, 0.11), kind: 'surface' }); var kN = mobile ? 3 : 6; for (i = 0; i < kN; i++) fog.push({ y: rand(10, surfaceY - 40), ph: rand(0, 6.28), a: rand(0.05, 0.1), kind: 'sky' }); }
+  function initFog() { fog.length = 0; if (reduce) return; var sN = mobile ? 3 : 5; for (var i = 0; i < sN; i++) fog.push({ y: surfaceY + 16 + i * 36 + rand(-12, 12), ph: rand(0, 6.28), a: rand(0.05, 0.11), kind: 'surface' }); var kN = mobile ? 3 : 6; for (i = 0; i < kN; i++) fog.push({ x: rand(-150, W + 150), y: rand(10, surfaceY - 30), ph: rand(0, 6.28), a: rand(0.08, 0.16), s: rand(0.9, 1.6), sp: rand(2, 6), kind: 'sky' }); }
 
   function initLife() {
     creatures.length = 0; if (reduce) return; var floorD = floorY - surfaceY;
@@ -228,11 +228,17 @@
   function drawSkyFog(off) {
     for (var i = 0; i < fog.length; i++) {
       if (fog[i].kind !== 'sky') continue;
-      var fo = fog[i], sy = fo.y - off + Math.sin(t * 0.18 + fo.ph) * 12;
-      if (sy < -110 || sy > H + 110) continue;
-      var hh = 72, col = '124,142,152', a = fo.a * (flash > 0.2 ? 1.7 : 1);
-      var g = ctx.createLinearGradient(0, sy - hh, 0, sy + hh); g.addColorStop(0, 'rgba(' + col + ',0)'); g.addColorStop(0.5, 'rgba(' + col + ',' + a + ')'); g.addColorStop(1, 'rgba(' + col + ',0)');
-      ctx.fillStyle = g; ctx.fillRect(0, sy - hh, W, hh * 2);
+      var fo = fog[i]; fo.x += fo.sp * 0.012; if (fo.x > W + 240) fo.x = -240;
+      var y = fo.y - off + Math.sin(t * 0.16 + fo.ph) * 12;
+      if (y < -180 || y > H + 180) continue;
+      ctx.save(); ctx.globalAlpha = fo.a * (flash > 0.2 ? 1.7 : 1);
+      for (var b = 0; b < 4; b++) {
+        var bx = fo.x + (b - 1.5) * 72 * fo.s, by = y + Math.sin(b * 1.7 + fo.ph) * 16, br = (96 + (b % 2) * 44) * fo.s;
+        var g = ctx.createRadialGradient(bx, by, 0, bx, by, br);
+        g.addColorStop(0, 'rgba(150,168,178,.55)'); g.addColorStop(0.55, 'rgba(150,168,178,.22)'); g.addColorStop(1, 'rgba(150,168,178,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(bx, by, br, 0, 6.2832); ctx.fill();
+      }
+      ctx.restore();
     }
   }
   function fireBolt() { var c = clouds[(Math.random() * clouds.length) | 0] || { x: rand(0, W), y: 40 }; var pts = [{ x: c.x, y: c.y }], x = c.x, y = c.y, endY = surfaceY - 10; while (y < endY) { y += rand(20, 46); x += rand(-32, 32); pts.push({ x: x, y: y }); } bolts.push({ pts: pts, a: 1 }); flash = 1; }
